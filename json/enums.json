@@ -1,0 +1,46 @@
+{
+  "HTTP_CODES": {
+    "BAD_REQUEST": 400,
+    "DUPLICATE_VALUE": 409,
+    "FORBIDDEN": 403,
+    "INTERNAL_SERVER_ERROR": 500,
+    "METHOD_NOT_ALLOWED": 405,
+    "MOVED_PERMANENTLY": 301,
+    "NOT_ACCEPTABLE": 406,
+    "NOT_FOUND": 404,
+    "NO_CONTENT_FOUND": 204,
+    "OK": 200,
+    "PERMANENT_REDIRECT": 308,
+    "UNAUTHORIZED": 401,
+    "UPGRADE_REQUIRED": 426,
+    "VALIDATION_ERROR": 422
+  },
+  "ROLE": {
+    "USER": "user",
+    "ADMIN": "admin"
+  },
+  "PRPPERTY_TYPE": {
+    "HOUSE": "house",
+    "APPARTMENT": "appartment",
+    "PROPERTY": "property",
+    "BUSINESS": "business"
+  },
+  "HOUSE_TYPE": {
+    "DETACHED": "detached",
+    "SEMI_DETACHED": "semi-detached",
+    "TOWNHOUSE": "town-house",
+    "APPARTMENT": "appartment",
+    "COMMERCIAL": "commercial"
+  },
+  "CURRENT_USAGE": {
+    "SELF_INHABITED": "self-inhabited",
+    "RENTED": "rented",
+    "PARTLY_RENTED": "partly-rented",
+    "FREI": "frei"
+  },
+  "SEARCH_REQUEST": {
+    "BUY": "buy",
+    "RENT": "rent",
+    "BUY_OR_RENT": "buy-or-rent"
+  }
+}
