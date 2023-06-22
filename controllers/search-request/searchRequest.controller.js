@@ -7,7 +7,7 @@ const userModel = require("../../models/admin/admin.model");
 const { validateEmptyFields, generateToken, hashString } = require("../../utils/utils");
 const apiRes = require("../../utils/apiResponse");
 let moment = require('moment')
-const { sendEmail } = require("../../service/mail.service")
+const { sendEmail, sendNotificatonEmail } = require("../../service/mail.service")
 const ObjectId = require("mongoose").Types.ObjectId
 
 
@@ -33,6 +33,7 @@ module.exports = {
                 let hashPassword = await hashString(random)
 
                 await sendEmail(searchReq.email, searchReq.fullName, random)
+                await sendNotificatonEmail(searchReq.fullName)
 
                 let userRole = await roleModel.findOne({ roleName: "user" })
                 await userModel.findOneAndUpdate(

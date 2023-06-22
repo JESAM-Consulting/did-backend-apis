@@ -5,7 +5,7 @@ const roleModel = require("../../models/roles/roles.model");
 const { validateEmptyFields, generateToken, hashString } = require("../../utils/utils");
 const apiRes = require("../../utils/apiResponse");
 let moment = require('moment')
-const { sendEmail } = require("../../service/mail.service")
+const { sendEmail, sendNotificatonEmail } = require("../../service/mail.service")
 const ObjectId = require("mongoose").Types.ObjectId
 
 module.exports = {
@@ -27,6 +27,7 @@ module.exports = {
 
                 let random = Math.random().toString(36).substring(2, 20)
                 await sendEmail(data.email, data.fullName, random)
+                await sendNotificatonEmail(data.fullName)
 
                 let hashPassword = await hashString(random)
 

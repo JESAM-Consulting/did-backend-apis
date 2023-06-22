@@ -13,6 +13,8 @@ const contactSchema = new Schema(
     knowUs: { type: String },
     news: { type: Boolean },
     tNc: { type: Boolean },
+    support: [{ type: String }],
+    Sonstiges: { type: String },
   },
   {
     timestamps: true,

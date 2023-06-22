@@ -4,7 +4,7 @@ const { PRPPERTY_TYPE, HOUSE_TYPE, CURRENT_USAGE } = require("../../json/enums.j
 
 const managePropertySchema = new Schema(
   {
-    manageType: { type: String },
+    manageType: [{ type: String }],
     areaSize: { type: Number },
     propertySize: { type: Number },
     currentUsage: { type: String },

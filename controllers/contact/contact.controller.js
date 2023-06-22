@@ -48,6 +48,8 @@ module.exports = {
             { occupationRole: { $regex: letter, $options: 'i' } },
             { email: { $regex: letter, $options: 'i' } },
             { knowUs: { $regex: letter, $options: 'i' } },
+            { support: { $regex: letter, $options: 'i' } },
+            { Sonstiges: { $regex: letter, $options: 'i' } },
           ]
         }
       }

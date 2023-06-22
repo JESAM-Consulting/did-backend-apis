@@ -79,10 +79,11 @@ module.exports = {
 
     getStaticAll: async (req, res) => {
         try {
-            let { _id } = req.query
+            let { _id, name } = req.query
 
             let criteria = {}
             if (_id) criteria._id = ObjectId(_id)
+            if (name) criteria.name = name
 
             const searchCount = await staticModel.find(criteria).countDocuments()
             const getStatic = await staticModel.find(criteria)
