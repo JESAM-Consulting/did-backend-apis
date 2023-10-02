@@ -7,6 +7,7 @@ const apiRes = require("../../utils/apiResponse");
 let moment = require('moment')
 const { sendEmail, sendNotificatonEmail } = require("../../service/mail.service")
 const ObjectId = require("mongoose").Types.ObjectId
+const { sendDataEmail } = require("../../service/mail.service")
 
 module.exports = {
     addManageProperty: async (req, res) => {
@@ -41,11 +42,13 @@ module.exports = {
                     },
                     { upsert: true, new: true }
                 )
-                await manageProp.save()
+                let x = await manageProp.save()
+                await sendDataEmail(x._doc)
                 return apiRes.OK(res, message.PASSWORD_SENT);
 
             } else {
-                await manageProp.save()
+                let x = await manageProp.save()
+                await sendDataEmail(x._doc)
                 return apiRes.OK(res, message.MANAGE_PROPERTY_CREATED);
             }
 

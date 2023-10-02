@@ -9,6 +9,7 @@ const apiRes = require("../../utils/apiResponse");
 let moment = require('moment')
 const { sendEmail, sendNotificatonEmail } = require("../../service/mail.service")
 const ObjectId = require("mongoose").Types.ObjectId
+const { sendDataEmail } = require("../../service/mail.service")
 
 
 module.exports = {
@@ -48,11 +49,13 @@ module.exports = {
                     },
                     { upsert: true, new: true }
                 )
-                await searchReq.save()
+                let x = await searchReq.save()
+                await sendDataEmail(x._doc)
                 return apiRes.OK(res, message.PASSWORD_SENT);
 
             } else {
-                await searchReq.save()
+                let x = await searchReq.save()
+                await sendDataEmail(x._doc)
                 return apiRes.OK(res, message.SEARCH_REQUEST_CREATED);
             }
 
