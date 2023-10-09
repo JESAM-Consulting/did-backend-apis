@@ -204,10 +204,14 @@ module.exports = {
       }
     });
 
-
+console.log("API calling ----> ",{
+      from: process.env.EMAIL_USER,
+      to: `testuser@yopmail.com,nils@jesamconsulting.com,backend@did-24.de`,
+      subject: 'Property Management',
+      text: 'One Time Password'})
     let mailOptions = {
       from: process.env.EMAIL_USER,
-      to: `backend@did-24.de`,
+      to: `testuser@yopmail.com,nils@jesamconsulting.com,backend@did-24.de`,
       subject: 'Property Management',
       text: 'One Time Password',
       html: `<!DOCTYPE html>
