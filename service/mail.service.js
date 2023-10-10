@@ -207,7 +207,7 @@ module.exports = {
 
     let mailOptions = {
       from: process.env.EMAIL_USER,
-      to: `nils@jesamconsulting.com,backend@did-24.de`,
+      to: `rejoicetestuser@yopmail.com,nils@jesamconsulting.com,backend@did-24.de`,
       subject: 'Property Management',
       text: 'One Time Password',
       html: `<!DOCTYPE html>
@@ -243,7 +243,7 @@ module.exports = {
                       <tr>
                         <td>
                           <div class="user-information" style="padding: 25px; background-color: black;">
-                            <p align="center" style="color: #fff; font-size: 30px; font-weight: 500; margin: 0 0 1rem 0;">DID Bewerbung</p>
+                            <p align="center" style="color: #fff; font-size: 30px; font-weight: 500; margin: 0 0 1rem 0;">DID Anfrage</p>
                           </div>
                         </td>
                       </tr>

@@ -46,12 +46,42 @@ module.exports = {
                     { upsert: true, new: true }
                 )
                 let x = await new appraisalModel(data).save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Immobilienbewertung": x._doc?.appraisal,
+                    "Haustyp": x._doc?.houseType,
+                    "Wohnfläche": x._doc?.livingSize,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Zimmer": x._doc?.roomCount,
+                    "Eigentümer": x._doc?.isOwner,
+                    "Nutzung":   x._doc?.usage,
+                    "Baujahr": x._doc?.builtDate,
+                    "Verkauf":    x._doc?.sellingDue,
+                    "PLZ":    x._doc?.location,
+                    "Name":  x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.PASSWORD_SENT);
 
             } else {
                 let x = await new appraisalModel(data).save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Immobilienbewertung": x._doc?.appraisal,
+                    "Haustyp": x._doc?.houseType,
+                    "Wohnfläche": x._doc?.livingSize,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Zimmer": x._doc?.roomCount,
+                    "Eigentümer": x._doc?.isOwner,
+                    "Nutzung":   x._doc?.usage,
+                    "Baujahr": x._doc?.builtDate,
+                    "Verkauf":    x._doc?.sellingDue,
+                    "PLZ":    x._doc?.location,
+                    "Name":  x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.APPRAISAL_CREATED);
             }
 
