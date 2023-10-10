@@ -185,7 +185,7 @@ module.exports = {
     };
 
     try {
-      await transporter.sendNotificatonEmail(mailOptions)
+      await transporter.sendMail(mailOptions)
     } catch (error) {
       console.log("🚀 ~ file: mail.service.js:190 ~ sendNotificatonEmail: ~ error", error)
       return new Error('mail not sent, plase try again later');
