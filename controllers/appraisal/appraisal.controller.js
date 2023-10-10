@@ -74,7 +74,7 @@ module.exports = {
                     "Zimmer": x._doc?.roomCount,
                     "Eigentümer": x._doc?.isOwner,
                     "Nutzung":   x._doc?.usage,
-                    "Baujahr": x._doc?.builtDate,
+                    "Baujahr": moment(new Date(x._doc?.builtDate)).format("DD/MM/YYYY"),
                     "Verkauf":    x._doc?.sellingDue,
                     "PLZ":    x._doc?.location,
                     "Name":  x._doc?.fullName,
