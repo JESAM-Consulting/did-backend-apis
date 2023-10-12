@@ -43,11 +43,31 @@ module.exports = {
                     { upsert: true, new: true }
                 )
                 let x = await licensePartner.save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Lizenzpartner": x._doc?.licensePartner,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Größe des Objektes": x._doc?.propertySize,
+                    "Nutzung": x._doc?.usage,
+                    "PLZ": x._doc?.location,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.PASSWORD_SENT);
             } else {
                 let x = await licensePartner.save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Lizenzpartner": x._doc?.licensePartner,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Größe des Objektes": x._doc?.propertySize,
+                    "Nutzung": x._doc?.usage,
+                    "PLZ": x._doc?.location,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.LICENSE_PARTNER_CREATED);
             }
 

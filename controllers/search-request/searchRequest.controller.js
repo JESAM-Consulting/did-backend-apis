@@ -50,12 +50,44 @@ module.exports = {
                     { upsert: true, new: true }
                 )
                 let x = await searchReq.save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Suchanfrage": x._doc?.searchRequest,
+                    "Stadt": x._doc?.city,
+                    "Bundesland": x._doc?.state,
+                    "Objekt mieten": x._doc?.propertyRent,
+                    "Objekt kaufen": x._doc?.propertyBuy,
+                    "max. Mietpreis": x._doc?.maxRentPrice,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Zimmer": x._doc?.roomCount,
+                    "max. Kaufpreis": x._doc?.maxBuyPrice,
+                    "Suche nach Datum": x._doc?.searchDate,
+                    "Sonstiges": x._doc?.other,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.PASSWORD_SENT);
 
             } else {
                 let x = await searchReq.save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Suchanfrage": x._doc?.searchRequest,
+                    "Stadt": x._doc?.city,
+                    "Bundesland": x._doc?.state,
+                    "Objekt mieten": x._doc?.propertyRent,
+                    "Objekt kaufen": x._doc?.propertyBuy,
+                    "max. Mietpreis": x._doc?.maxRentPrice,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "Zimmer": x._doc?.roomCount,
+                    "max. Kaufpreis": x._doc?.maxBuyPrice,
+                    "Suche nach Datum": x._doc?.searchDate,
+                    "Sonstiges": x._doc?.other,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.SEARCH_REQUEST_CREATED);
             }
 

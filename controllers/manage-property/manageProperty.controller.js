@@ -43,12 +43,32 @@ module.exports = {
                     { upsert: true, new: true }
                 )
                 let x = await manageProp.save()
-                await sendDataEmail(x._doc)
+                let body = {
+                    "Verwaltung": x._doc?.manageType,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "propertySize": x._doc?.propertySize,
+                    "aktuelle Nutzung": x._doc?.currentUsage,
+                    "PLZ": x._doc?.location,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,                  
+                }
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.PASSWORD_SENT);
 
             } else {
+                let body = {
+                    "Verwaltung": x._doc?.manageType,
+                    "Grundstücksfläche": x._doc?.areaSize,
+                    "propertySize": x._doc?.propertySize,
+                    "aktuelle Nutzung": x._doc?.currentUsage,
+                    "PLZ": x._doc?.location,
+                    "Name": x._doc?.fullName,
+                    "E-Mail": x._doc?.email,
+                    "Telefon": x._doc?.phone,                  
+                }
                 let x = await manageProp.save()
-                await sendDataEmail(x._doc)
+                await sendDataEmail(body)
                 return apiRes.OK(res, message.MANAGE_PROPERTY_CREATED);
             }
 
