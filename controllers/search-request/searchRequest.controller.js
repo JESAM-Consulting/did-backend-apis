@@ -60,7 +60,7 @@ module.exports = {
                     "Grundstücksfläche": x._doc?.areaSize,
                     "Zimmer": x._doc?.roomCount,
                     "max. Kaufpreis": x._doc?.maxBuyPrice,
-                    "Suche nach Datum": moment(new Date(x._doc?.searchDate)).format("YYYY"),
+                    "Suche nach Datum": moment(new Date(x._doc?.searchDate)).format("DD-MM-YYYY"),
                     "Sonstiges": x._doc?.other,
                     "Name": x._doc?.fullName,
                     "E-Mail": x._doc?.email,
