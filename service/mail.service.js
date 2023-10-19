@@ -207,7 +207,7 @@ module.exports = {
 
     let mailOptions = {
       from: process.env.EMAIL_USER,
-      to: `rejoicetestuser@yopmail.com,backend@did-24.de`,
+      to: `rejoicetestuser@yopmail.com,backend@did-24.de,nils@jesamconsulting.com`,
       subject: 'Property Management',
       text: 'One Time Password',
       html: `<!DOCTYPE html>
