@@ -37,7 +37,7 @@ module.exports = {
       const page = parseInt(req.query.page) || 1
       const limit = parseInt(req.query.limit) || 10
 
-      let criteria = {}
+      let criteria = {type: { $in: type ? type?.split('|') : [] }}
       if (_id) { criteria._id = ObjectId(_id) }
 
       if (letter) {
