@@ -31,7 +31,7 @@ module.exports = {
 
   getContact: async (req, res) => {
     try {
-      let { _id, letter } = req.query
+      let { _id, letter, type } = req.query
 
       // pagination
       const page = parseInt(req.query.page) || 1
@@ -50,7 +50,8 @@ module.exports = {
             { knowUs: { $regex: letter, $options: 'i' } },
             { support: { $regex: letter, $options: 'i' } },
             { Sonstiges: { $regex: letter, $options: 'i' } },
-          ]
+          ],
+          type: { $in: type ? type?.split('|') : [] }
         }
       }
 

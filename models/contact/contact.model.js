@@ -15,6 +15,7 @@ const contactSchema = new Schema(
     tNc: { type: Boolean },
     support: [{ type: String }],
     Sonstiges: { type: String },
+    type: { type: String },
   },
   {
     timestamps: true,
