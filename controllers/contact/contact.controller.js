@@ -4,6 +4,7 @@ const { validateEmptyFields } = require("../../utils/utils");
 const apiRes = require("../../utils/apiResponse");
 let moment = require('moment')
 const ObjectId = require("mongoose").Types.ObjectId
+const { sendDataEmail } = require("../../service/mail.service")
 
 module.exports = {
   addContact: async (req, res) => {
@@ -15,6 +16,8 @@ module.exports = {
       }
 
       let contact = await contactModel.create(req.body)
+
+      await sendDataEmail(req.body);
       return apiRes.OK(res, message.CONTACT_CREATED, contact);
 
     } catch (error) {
